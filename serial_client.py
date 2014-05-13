@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import serial
+from serial import Serial
 
 
 def main():
@@ -23,7 +23,7 @@ def find_port():
 
 	for device in locations:
 		try:
-			serial_port = serial.Serial(device)
+			serial_port = Serial(device)
 			return serial_port
 		except:
 			if device == 'end':
