@@ -27,7 +27,7 @@ def find_port():
 			return serial_port
 		except:
 			if device == 'end':
-				print('Unable to find Serial Port, Please plug in cable or check cable connections.')
+				print('Unable to find Serial Port.')
 				exit()
 
 
