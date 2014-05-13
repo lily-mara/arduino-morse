@@ -97,7 +97,7 @@ int lookupChar(char toFind) {
 		     'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4',
 		     '5', '6', '7', '8', '9', '0'};
 
-  for (int i = 0; i < 26; i++) {
+  for (int i = 0; i < 36; i++) {
     if (alphabet[i] == toFind)
       return i;
   }
