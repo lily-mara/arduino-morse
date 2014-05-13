@@ -51,18 +51,15 @@ void dash() {
 }
 
 void blinkChar(char toBlink) {
-
-  char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-		     'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
-		     'x', 'y', 'z'};
-
   char* morseArray[] = {".-", "-...", "-.-.", "-..", ".", "..-.",
-			"--.", "....", "..", ".--", "-.-", ".-..", "--", "-.", "---",
-			".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-",
-			"-.--", "--..", ".----", "..---", "...--", "....-", ".....",
-			"-....", "--...", "----.", "-----", "|"};
+			"--.", "....", "..", ".--", "-.-", ".-..",
+			"--", "-.", "---", ".--.", "--.-", ".-.",
+			"...", "-", "..-", "...-", ".--", "-..-",
+			"-.--", "--..", ".----", "..---", "...--",
+			"....-", ".....", "-....", "--...", "----.",
+			"-----", "|"};
 
-  int position = find(alphabet, toBlink);
+  int position = lookupChar(toBlink);
   
   String morseLetter = morseArray[position];
   
@@ -75,9 +72,13 @@ void blinkChar(char toBlink) {
   }
 }
 
-int find(char array[], char toFind) {
+int lookupChar(char toFind) {
+  char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+		     'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+		     'u', 'v', 'w', 'x', 'y', 'z'};
+
   for (int i = 0; i < 26; i++) {
-    if (array[i] == toFind)
+    if (alphabet[i] == toFind)
       return i;
   }
   return -1;
