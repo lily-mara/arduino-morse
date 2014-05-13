@@ -36,10 +36,6 @@ void blinkSerialChar() {
   }
 }
 
-void sos() {
-  blinkString("sos");
-}
-
 void dot() {
   digitalWrite(ledPin, HIGH);
   delay(1 * timeUnit);
