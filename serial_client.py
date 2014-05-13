@@ -7,6 +7,7 @@ def main():
 	while True:
 		prompt(serial_port)
 
+
 def find_port():
 	locations=[
 		'/dev/ttyACM0', '/dev/ttyACM1','/dev/ttyACM2',
