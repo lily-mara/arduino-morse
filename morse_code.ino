@@ -17,6 +17,7 @@ void loop() {
   String inString = readString();
   if (! inString.equals("")) {
     blinkString(inString);
+    Serial.write(1);
   }
 }
 
