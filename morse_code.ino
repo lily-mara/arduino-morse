@@ -8,6 +8,11 @@ void setup() {
   Serial.begin(9600);
 }
 
+/*
+ * main loop, gets Strings from serial using readString(), and calls
+ * blinkString() on the String if it is non-empty.
+ */
+
 void loop() {
   String inString = readString();
   if (! inString.equals("")) {
@@ -15,6 +20,9 @@ void loop() {
   }
 }
 
+/*
+ * Reads char sequence from serial and returns a String
+ */
 String readString() {
   String content = "";
   char character;
@@ -28,14 +36,9 @@ String readString() {
   return content;
 }
 
-void blinkSerialChar() {
-  if (Serial.available() > 0) {
-    char incomingChar = (char) Serial.read();
-    
-    blinkChar(incomingChar);
-  }
-}
-
+/*
+ * produces a single "dot"/"dit" (shorter symbol) on the led
+ */
 void dot() {
   digitalWrite(ledPin, HIGH);
   delay(1 * timeUnit);
@@ -43,6 +46,9 @@ void dot() {
   delay(1 * timeUnit);
 }
 
+/*
+ * produces a single "dash" (longer symbol) on the led
+ */
 void dash() {
   digitalWrite(ledPin, HIGH);
   delay(3 * timeUnit);
@@ -50,6 +56,12 @@ void dash() {
   delay(1 * timeUnit);
 }
 
+/*
+ * Blinks the given char
+ *
+ * param toBlink
+ *   the char to blink
+ */
 void blinkChar(char toBlink) {
   char* morseArray[] = {".-", "-...", "-.-.", "-..", ".", "..-.",
 			"--.", "....", "..", ".--", "-.-", ".-..",
@@ -72,6 +84,13 @@ void blinkChar(char toBlink) {
   }
 }
 
+/*
+ * Returns the position in the alphabet of the given char, if not
+ * found, returns -1
+ *
+ * param toFind
+ *   the char to find in the alphabet
+ */
 int lookupChar(char toFind) {
   char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
 		     'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
@@ -84,6 +103,12 @@ int lookupChar(char toFind) {
   return -1;
 }
 
+/*
+ * Blinks each character in the string using the correct morse code times
+ *
+ * param toBlink
+ *   the String to blink
+ */
 void blinkString(String toBlink) {
   for (int i = 0; i < toBlink.length(); i++) {
     blinkChar(toBlink.charAt(i));
