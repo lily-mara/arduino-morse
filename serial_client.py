@@ -10,7 +10,7 @@ def main():
 
 
 def find_port():
-	locations=[
+	locations = [
 		'/dev/ttyACM0', '/dev/ttyACM1','/dev/ttyACM2',
 		'/dev/ttyACM3','/dev/ttyACM4',
 		'/dev/ttyACM5','/dev/ttyUSB0','/dev/ttyUSB1','/dev/ttyUSB2','/dev/ttyUSB3',
