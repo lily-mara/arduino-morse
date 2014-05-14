@@ -1,5 +1,5 @@
 const int ledPin = 9;
-const int timeUnit = 200;
+const int timeUnit = 100;
 
 int ledState = LOW;
 
