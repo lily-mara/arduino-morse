@@ -39,7 +39,8 @@ def write_string(to_write, port):
 def prompt(port):
 	blink = input('Enter a string to blink: ')
 	if blink == '':
-		sys.exit(0)
+		if input('Quit? [y]/n ').lower() in ('y', 'yes', ''):
+			sys.exit(0)
 	write_string(blink, port)
 	print('Waiting for blinking to finish...')
 	port.read()
