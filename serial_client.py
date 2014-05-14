@@ -41,6 +41,8 @@ def prompt(port):
 	if blink == '':
 		if input('Quit? [y]/n ').lower() in ('y', 'yes', ''):
 			sys.exit(0)
+		else:
+			return
 	write_string(blink, port)
 	print('Waiting for blinking to finish...')
 	port.read()
