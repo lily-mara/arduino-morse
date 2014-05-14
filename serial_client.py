@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from serial import Serial
+import sys
 
 
 def main():
@@ -37,6 +38,8 @@ def write_string(to_write, port):
 	
 def prompt(port):
 	blink = input('Enter a string to blink: ')
+	if blink == '':
+		sys.exit(0)
 	write_string(blink, port)
 	print('Waiting for blinking to finish...')
 	port.read()
