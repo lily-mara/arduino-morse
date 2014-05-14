@@ -39,7 +39,7 @@ def write_string(to_write, port):
 def prompt(port):
 	blink = input('Enter a string to blink: ')
 	if blink == '':
-		if input('Quit? [y]/n ').lower() in ('y', 'yes', ''):
+		if input('Quit? [y]/n ').lower().strip() in ('y', 'yes', ''):
 			sys.exit(0)
 		else:
 			return
