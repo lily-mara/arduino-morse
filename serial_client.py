@@ -29,7 +29,7 @@ def find_port():
 		except:
 			if device == 'end':
 				print('Unable to find Serial Port.')
-				exit()
+				sys.exit()
 
 
 def write_string(to_write, port):
