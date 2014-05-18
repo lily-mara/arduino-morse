@@ -1,7 +1,7 @@
-#include "Morse.h"
+#include <Morse.h>
+Morse morse(8, 100);
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);      
   Serial.begin(9600);
 }
 
@@ -13,8 +13,8 @@ void setup() {
 void loop() {
   String inString = readString();
   if (! inString.equals("")) {
-    blinkString(inString);
-    Serial.write(1);
+    morse.blinkString(inString);
+    Serial.println(0);
   }
 }
 
